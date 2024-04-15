@@ -14,7 +14,7 @@ export default function App() {
 
     const interval = setInterval(() => {
       // Calcula o tempo restante em milissegundos
-      const difference = futureDate - new Date().getTime();
+      const difference = futureDate.getTime() - new Date().getTime();
 
       // Calcula dias, horas, minutos e segundos restantes
       const days = Math.floor(difference / (1000 * 60 * 60 * 24));
@@ -40,8 +40,8 @@ export default function App() {
   }, []);
 
   return (
-    <div>
-      <h2>Tempo: {timeLeft}</h2>
-    </div>
+    <main className="flex min-h-screen flex-col items-center justify-center p-24">
+      <h2 className="text-center">Tempo: {timeLeft}</h2>
+    </main>
   );
 }
