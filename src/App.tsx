@@ -11,11 +11,11 @@ export default function App() {
     tomorrow.setHours(0, 0, 0, 0);
 
     // Data daqui a 50 dias
-    const futureDate = new Date(tomorrow.getTime() + 50 * 24 * 60 * 60 * 1000);
+    const futureDate = new Date(tomorrow.getTime() + 49 * 24 * 60 * 60 * 1000);
 
     const interval = setInterval(() => {
 
-      const difference = futureDate.getTime() - new Date().getTime();
+    const difference = futureDate.getTime() - new Date().getTime();
 
 
       const days = Math.floor(difference / (1000 * 60 * 60 * 24));
@@ -42,18 +42,32 @@ export default function App() {
 
   return (
     <>
+    <div style={{ display: 'flex', gap: '20px' }}>
       <Box sx={{ minWidth: 275 }}>
-        
         <Card variant="outlined">
           <Typography sx={{ fontSize: 44 }} color="text.secondary">
             Tempo: {timeLeft}
           </Typography>
-
-          <Typography variant="h5" component="div">Greco: Peso mosca</Typography>
-          <Typography variant="h5" component="div">David: Trogodita Asgardiano</Typography>
-
+          <Typography sx={{ fontSize: 44 }} color="text.secondary">
+            Data 15/04/2024
+          </Typography>
+          <Typography variant="h5" component="div">Greco: Peso mosca - 63,25 - 15/04/2024</Typography>
+          <Typography variant="h5" component="div">David: Trogodita Asgardiano - 89,45 - 16/04/2024</Typography>
         </Card>
       </Box>
+      <Box sx={{ minWidth: 275}}>
+      <Card variant="outlined" sx={{ background: 'red' }}>
+        <Typography style={{color: 'white'}} sx={{ fontSize: 44 }} color="text.secondary">
+          Meta:
+        </Typography>
+        <Typography style={{color: 'white'}} sx={{ fontSize: 44 }} color="text.secondary">
+          Data 06/06/2024
+        </Typography>
+        <Typography style={{color: 'white'}} variant="h5" component="div">Greco: Peso mosca - ????</Typography>
+        <Typography style={{color: 'white'}} variant="h5" component="div">David: Trogodita Asgardiano - ????</Typography>
+      </Card>
+    </Box>
+    </div>
 
 
     </>
