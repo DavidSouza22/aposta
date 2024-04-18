@@ -1,8 +1,7 @@
-import { Box, Card, Typography } from '@mui/material';
+import { Box, Card, Grid, Typography } from '@mui/material';
 import { useState, useEffect } from 'react';
 import CardDavid from './components/CardDavid';
 import CardGreco from './components/CardGreco';
-
 
 export default function App() {
   const [timeLeft, setTimeLeft] = useState('');
@@ -32,8 +31,8 @@ export default function App() {
   }, []);
 
   return (
-    <div style={{ display: 'flex', gap: '20px' }}>
-      <Box sx={{ minWidth: 275 }}>
+    <Grid container spacing={3}>
+      <Grid item xs={12} md={6}>
         <Card variant="outlined">
           <Typography sx={{ fontSize: 30 }} color="text.secondary">
             Tempo: {timeLeft}
@@ -41,20 +40,15 @@ export default function App() {
           <Typography sx={{ fontSize: 30 }} color="text.secondary">
             Data 15/04/2024
           </Typography>
-          {/* <Typography variant="h5" component="div">Greco: Peso mosca - 63,25 - 15/04/2024</Typography>
-            <Typography variant="h5" component="div">David: Trogodita Asgardiano - 89,45 - 16/04/2024</Typography> */}
         </Card>
-      </Box>
-      <div>
+      </Grid>
+      <Grid item xs={12} md={3}>
         <CardGreco />
-      </div>
-      <br />
-      <div>
+      </Grid>
+      <Grid item xs={12} md={3}>
         <CardDavid />
-      </div>
-      <br />
-      <br />
-      <Box sx={{ minWidth: 275 }}>
+      </Grid>
+      <Grid item xs={12}>
         <Card variant="outlined" sx={{ background: 'linear-gradient(135deg, #ff4136, #ff851b)', borderRadius: '12px', padding: '20px' }}>
           <Typography sx={{ fontSize: 32, color: 'white', fontWeight: 'bold', marginBottom: '10px' }}>
             Meta:
@@ -69,10 +63,7 @@ export default function App() {
             David: Trogodita Asgardiano - ????
           </Typography>
         </Card>
-      </Box>
-
-
-    </div>
-
+      </Grid>
+    </Grid>
   );
 }
