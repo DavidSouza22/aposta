@@ -1,4 +1,4 @@
-import { Box, Card, Grid, Typography } from '@mui/material';
+import { Card, Grid, Typography } from '@mui/material';
 import { useState, useEffect } from 'react';
 import CardDavid from './components/CardDavid';
 import CardGreco from './components/CardGreco';
