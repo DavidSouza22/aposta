@@ -5,41 +5,30 @@ export default function App() {
   const [timeLeft, setTimeLeft] = useState('');
 
   useEffect(() => {
-
-    const tomorrow = new Date();
-    tomorrow.setDate(tomorrow.getDate() + 1);
-    tomorrow.setHours(0, 0, 0, 0);
-
-    // Data daqui a 50 dias
-    const futureDate = new Date(tomorrow.getTime() + 49 * 24 * 60 * 60 * 1000);
-
+    // Data de destino: 06/06/2024
+    const futureDate = new Date('2024-06-06T00:00:00');
+  
     const interval = setInterval(() => {
-
-    const difference = futureDate.getTime() - new Date().getTime();
-
-
-      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-
-      const formattedTimeLeft = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-
-
-      setTimeLeft(formattedTimeLeft);
-
-
+      const difference = futureDate.getTime() - new Date().getTime();
+  
+      // Verificar se a data futura já passou
       if (difference < 0) {
         clearInterval(interval);
         setTimeLeft('Tempo esgotado!');
+      } else {
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+  
+        const formattedTimeLeft = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        setTimeLeft(formattedTimeLeft);
       }
     }, 1000);
-
-
+  
     return () => clearInterval(interval);
   }, []);
-
+  
   return (
     <>
     <div style={{ display: 'flex', gap: '20px' }}>
@@ -68,8 +57,6 @@ export default function App() {
       </Card>
     </Box>
     </div>
-
-
     </>
 
   );
