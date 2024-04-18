@@ -42,6 +42,7 @@ export default function App() {
           </Typography>
         </Card>
       </Grid>
+      
       <Grid item xs={12} md={3}>
         <CardGreco />
       </Grid>
