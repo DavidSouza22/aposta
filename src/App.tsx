@@ -11,7 +11,7 @@ const App: React.FC = () => {
 
     setTimeout(() => {
       setLoading(false);
-      setMessage('Eu te amo');
+      setMessage('Eu te amo Livia');
     }, 2000); // Simula um carregamento de 2 segundos
   };
 
